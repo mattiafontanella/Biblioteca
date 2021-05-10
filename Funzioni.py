@@ -44,78 +44,21 @@ def aggiungiLibro () :
     M.menu()
 
 def cancellaLibro () :
-    global db_biblioteca
-    global libriAggiuti
-    i=0
-
-    if (libriAggiuti==0) :
-        print("Non ci sono libri della biblioteca \n")
-
-    if (libriAggiuti==1):
-        print("Devi aggiugere almeno 2 libri prima di eliminarne uno!")
-    else :
-        for i,diz in enumerate(db_biblioteca["Libro"]):
-            print(i,"- ",diz)
-
-        print("Inserisci il numero del libro da eliminare: ")
-        numLib=input()
-        try:
-            db_biblioteca["Libro"].pop(int(numLib))
-            libriAggiuti=libriAggiuti-1
-        except ValueError:
-            print("Inserisci un valore intero")
     M.menu()
 
 
 def visualizzaInventario () :
-    global db_biblioteca
-
-    for diz in db_biblioteca["Libro"] :
-        print(diz)
-
     M.menu()
 
 def aggiungiUtente():
     global utentiAggiunti
-    print("Inserisci il codice fiscale: \n")
-    variabile=input().upper()
-    db_biblioteca["Utente"][utentiAggiunti]["Tessera"]=variabile
-    db_biblioteca["Utente"][utentiAggiunti]["Data_Registrazione"] = time.strftime("%d/%m/%Y")
     print("Inserisci il nome \n")
-    db_biblioteca["Utente"][utentiAggiunti]["Nome"] = variabile
+    nome=input()
     print("Inserisci il cognome \n")
-    db_biblioteca["Utente"][utentiAggiunti]["Cognome"] = variabile
-    print("Se possibile inserire numero di telefono")
-    db_biblioteca["Utente"][utentiAggiunti]["Recapiti"]["Telefono"] = variabile
-    print("Se possibile inserire indirizzo di residenza")
-    db_biblioteca["Utente"][utentiAggiunti]["Recapiti"]["Indirizzo"] = variabile
-    print("Se possibile inserire E-mail")
-    db_biblioteca["Utente"][utentiAggiunti]["Recapiti"]["E-mail"] = variabile
+    cognome=input()
     M.menu()
 
 def visualizzaUtenti():
-    for diz in db_biblioteca["Utente"] :
-        print(diz)
     M.menu()
 def eliminaUtente():
-    global db_biblioteca
-    global utentiAggiunti
-    i = 0
-
-    if (utentiAggiunti == 0):
-        print("Non ci sono libri della biblioteca \n")
-
-    if (utentiAggiunti == 1):
-        print("Devi aggiugere almeno 2 libri prima di eliminarne uno!")
-    else:
-        for i, diz in enumerate(db_biblioteca["Libro"]):
-            print(i, "- ", diz)
-
-        print("Inserisci il numero del libro da eliminare: ")
-        numLib = input()
-        try:
-            db_biblioteca["Libro"].pop(int(numLib))
-            libriAggiuti = utentiAggiunti - 1
-        except ValueError:
-            print("Inserisci un valore intero")
     M.menu()
